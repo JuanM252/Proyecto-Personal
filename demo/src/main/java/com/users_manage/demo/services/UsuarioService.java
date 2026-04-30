@@ -2,6 +2,7 @@ package com.users_manage.demo.services;
 
 import java.util.List;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.users_manage.demo.models.UsuarioModel;
@@ -16,9 +17,10 @@ public class UsuarioService {
 
 
     private final UsuarioRepo usuarioRepo;
-
+    private final PasswordEncoder passwordEncoder;
 
     public UsuarioModel crearUsuario(UsuarioModel usuariomodel) {
+        usuariomodel.setPassword(passwordEncoder.encode(usuariomodel.getPassword()));
         return usuarioRepo.save(usuariomodel);
     }
 

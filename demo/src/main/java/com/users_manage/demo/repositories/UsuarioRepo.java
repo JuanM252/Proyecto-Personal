@@ -11,6 +11,6 @@ import com.users_manage.demo.models.UsuarioModel;
 
 public interface UsuarioRepo extends MongoRepository<UsuarioModel, String> {
 
-    Optional<UsuarioModel> findByCorreo(String correo);
+    Optional<UsuarioModel> findByDocumento(String documento);
 
 }

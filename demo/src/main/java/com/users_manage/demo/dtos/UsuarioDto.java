@@ -16,6 +16,9 @@ public class UsuarioDto {
     @Email
     private String correo;
 
+    @NotBlank
+    private String documento;
+
     @Size(min = 6, max = 20)
     private String contraseña;
 }

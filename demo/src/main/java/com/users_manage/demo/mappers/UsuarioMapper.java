@@ -10,7 +10,7 @@ import com.users_manage.demo.models.UsuarioModel;
 public class UsuarioMapper {
 
 
-    public UsuarioModel toModel(UsuarioDto dto) {
+    public UsuarioModel toEntity(UsuarioDto dto) {
         UsuarioModel Umodel = new UsuarioModel();
         Umodel.setNom(dto.getNombre());
         Umodel.setEmail(dto.getCorreo());
