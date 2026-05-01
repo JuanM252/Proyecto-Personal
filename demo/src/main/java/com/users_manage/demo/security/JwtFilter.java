@@ -1,4 +1,4 @@
-package com.users_manage.demo.security;
+/* package com.users_manage.demo.security;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -26,4 +26,4 @@ public class JwtFilter extends OncePerRequestFilter {
             }
 
 }
-}
+} */
