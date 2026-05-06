@@ -1,8 +1,10 @@
-/* package com.users_manage.demo.security;
+package com.users_manage.demo.security;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import java.io.IOException;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,10 +17,10 @@ public class JwtFilter extends OncePerRequestFilter {
     protected void doFilterIternal(HttpServletRequest request,
                                    HttpServletResponse response,
                                    FilterChain filterChain)
-            throws ServeletException, IOException {
+            throws ServletException, IOException {
                 String header = request.getHeader("Authorization");
 
-            if (header !=null $$ header.startsWith("bearer")) {
+            if (header !=null && header.startsWith("Bearer ")) {
 
                 String token = header.substring(7);
                 String documento = extraerDocumento(token);
@@ -26,4 +28,4 @@ public class JwtFilter extends OncePerRequestFilter {
             }
 
 }
-} */
+}

@@ -1,4 +1,4 @@
-/* package com.users_manage.demo.security;
+package com.users_manage.demo.security;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -46,4 +46,4 @@ public class JwtUtil {
         return !extraerClaims(token).getExpiration().before(new Date());
     }
 
-} */
+}
