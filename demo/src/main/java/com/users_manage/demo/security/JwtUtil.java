@@ -16,28 +16,29 @@ import io.jsonwebtoken.security.Keys;
 public class JwtUtil {
 
 
-    private final String secret = "clave_secreta";
+    private final static String secret = "clave_secreta";
     // Generar token JWT 
     public String generateToken(String documento) {      
         return Jwts.builder()
-                .subject(documento)
-                .issuedAt(new Date())
-                .expiration(new Date(System.currentTimeMillis() + 3600000))
+                .setSubject(documento)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + 3600000))
                 .signWith(getSigningKey())
                 .compact();
 
     }
-    private SecretKey getSigningKey() {
+    private static SecretKey getSigningKey() {
         return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
     }
 
-    public String extraerDocumneto(String token){
+    public static String extraerDocumento(String token){
         return extraerClaims(token).getSubject();
     }
 
-    private Claims extraerClaims(String token) {
-        return Jwts.parser()
-                .setSigningKey(secret)
+    private static Claims extraerClaims(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
                 .parseClaimsJws(token)
                 .getBody();
     }
