@@ -28,7 +28,7 @@ public class JwtFilter extends OncePerRequestFilter {
             if (header !=null && header.startsWith("Bearer ")) {
 
                 String token = header.substring(7);
-                String documento = jwtUtil.extraerDocumento(token);
+                String documento = JwtUtil.extraerDocumento(token);
 
                 if(documento != null){
                     UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(documento, null, new ArrayList<>());

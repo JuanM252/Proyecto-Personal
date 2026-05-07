@@ -10,13 +10,18 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
-
+import lombok.Data;
+@Data
 @Component
 
 public class JwtUtil {
 
 
     private final static String secret = "clave_secreta";
+
+    public static String getSecret() {
+        return secret;
+    }
     // Generar token JWT 
     public String generateToken(String documento) {      
         return Jwts.builder()
