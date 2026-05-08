@@ -11,10 +11,19 @@ public class UsuarioMapper {
 
 
     public UsuarioModel toEntity(UsuarioDto dto) {
-        UsuarioModel Umodel = new UsuarioModel();
-        Umodel.setNom(dto.getNombre());
-        Umodel.setEmail(dto.getCorreo());
-        Umodel.setPassword(dto.getContraseña());
-        return Umodel;
+        UsuarioModel uModel = new UsuarioModel();
+        uModel.setNom(dto.getNombre());
+        uModel.setEmail(dto.getCorreo());
+        uModel.setPassword(dto.getContraseña());
+        uModel.setDocumento(dto.getDocumento());
+        return uModel;
+    }
+
+    public UsuarioDto toDto(UsuarioModel model) {
+        UsuarioDto uDto = new UsuarioDto();
+        uDto.setNombre(model.getNom());
+        uDto.setCorreo(model.getEmail());
+        uDto.setDocumento(model.getDocumento());
+        return uDto;
     }
 }
